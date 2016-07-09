@@ -1,5 +1,6 @@
-# ZMQ
-A minimal ZMQ implementation for the arduino.
+# originlib
+An arduino library for interfacing with a Origin data monitoring server.
 
 ## Current support
-Emulates ZMQ Push and Req sockets, includes a library for interfacing with the ocs monitoringServer application
+Supports Origin v1 raw string registration and binary format.
+Requries the arduino zmq library: (https://github.com/Orthogonal-Systems/zmq)
