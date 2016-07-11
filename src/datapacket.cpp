@@ -1,5 +1,6 @@
 #include "datapacket.h"
 #include <stdlib.h>
+//#include <Arduino.h>
 
 // ready special packet in the buffer to send to sever to announce the data format
 // returns length of packet in bytes
@@ -24,6 +25,11 @@ uint8_t DataPacket::processStreamRegistration(uint8_t len){
     return ERR_SERVER_LEN;
   }
   streamRegistrationKey( buffer+2 );// store stream identifier
+//  Serial.println("StreamKey");
+//  for( uint8_t i = 0; i<STREAM_KEY_LENGTH; i++){
+//    Serial.print(int(streamKey[i]));
+//  }
+//  Serial.println("");
   return 0;
 }
 

@@ -125,8 +125,8 @@ class DataPacket{
 
     // The stream identification key length 4, recieved from server after string registration
     inline void streamRegistrationKey(char* key){
-      memcpy(streamKey,key,STREAM_KEY_LENGTH);
-      memcpy(streamVer,key+STREAM_KEY_LENGTH,STREAM_KEY_LENGTH);
+      memcpy(streamVer,key,STREAM_KEY_LENGTH);
+      memcpy(streamKey,key+STREAM_KEY_LENGTH,STREAM_KEY_LENGTH);
     }
 };
 

@@ -2,6 +2,7 @@
 #include "datapacket.h"
 #include "zmqduino.h"
 #include "origin.h"
+//#include <Arduino.h>
 
 uint8_t Origin::registerStream(){
   ZMQSocket ZMQReq( client, ZMQbuffer, REQ );
@@ -26,6 +27,9 @@ uint8_t Origin::registerStream(){
     }
   } while( len < 0 );
   err = packet.processStreamRegistration(len);
+//  for(uint8_t i=0; i<len+4; i++){
+//    Serial.println(int(ZMQbuffer[i]));
+//  }
   ZMQReq.stop();// disconnect from registering port
   return err;
 }
