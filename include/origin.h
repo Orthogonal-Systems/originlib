@@ -65,7 +65,7 @@ class Origin{
     uint16_t msg_port;        //! server data stream port
 
     DataPacket packet;        //! data packet class
-    char * dtype_str[DTYPE_STRING_MAXSIZE];
+    char dtype_str[DTYPE_STRING_MAXSIZE];
     char * const ZMQbuffer;   //! pointer to start of buffer
 };
 

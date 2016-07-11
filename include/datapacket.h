@@ -82,6 +82,7 @@ class DataPacket{
     const uint8_t channels; //! number of data points to send
     char * const streamName;  //! human readable stream designator
     char streamKey[STREAM_KEY_LENGTH];  //! binary stream designator, received from server after registration
+    char streamVer[STREAM_KEY_LENGTH];  //! stream version idenifier
     const uint8_t streamNameSize; //! length of stream name
     const uint8_t dataEntrySize;  //! size of each entry in bytes
     char * const buffer;  //! pointer to start of buffer (4 bytes after start of zmq buffer)
@@ -125,6 +126,7 @@ class DataPacket{
     // The stream identification key length 4, recieved from server after string registration
     inline void streamRegistrationKey(char* key){
       memcpy(streamKey,key,STREAM_KEY_LENGTH);
+      memcpy(streamVer,key+STREAM_KEY_LENGTH,STREAM_KEY_LENGTH);
     }
 };
 

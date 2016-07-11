@@ -1,10 +1,7 @@
 #include <stdint.h>
-//#include <UIPEthernet.h>
-//#include <UIPClient.h>
 #include "datapacket.h"
-//#include "zmqduino.h"
+#include "zmqduino.h"
 #include "origin.h"
-
 
 uint8_t Origin::registerStream(){
   ZMQSocket ZMQReq( client, ZMQbuffer, REQ );
@@ -19,7 +16,7 @@ uint8_t Origin::registerStream(){
     }
     if(!err){
       // register datastream with server
-      len = packet.registerStream(*dtype_str);
+      len = packet.registerStream((char *)dtype_str);
       ZMQReq.sendZMQMsg(len);
       len = ZMQReq.recv();
       if( len < 0 ){

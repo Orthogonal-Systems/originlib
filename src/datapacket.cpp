@@ -1,5 +1,4 @@
 #include "datapacket.h"
-//#include <Arduino.h>
 #include <stdlib.h>
 
 // ready special packet in the buffer to send to sever to announce the data format
@@ -15,16 +14,16 @@ uint8_t DataPacket::registerStream(char* dtype){
 // read the message in the buffer of length len
 // extract streamKey and return 0 if success, else return error code
 uint8_t DataPacket::processStreamRegistration(uint8_t len){
-  // the server response should be in the format of '[errorcode,streamKey]', where stream key is a uint32
+  // the server response should be in the format of 'errorcode,streamKey', where stream key is a uint64
   // that is used to identify the stream with the server.
   // error code is a char, 0 is no error
-  if( buffer[1] != '0' ){
+  if( buffer[0] != '0' ){
     return ERR_SERVER_RESP;
   } 
-  if( len != 8 ){
+  if( len != 2+2*STREAM_KEY_LENGTH ){
     return ERR_SERVER_LEN;
   }
-  streamRegistrationKey( buffer+3 );// store stream identifier
+  streamRegistrationKey( buffer+2 );// store stream identifier
   return 0;
 }
 

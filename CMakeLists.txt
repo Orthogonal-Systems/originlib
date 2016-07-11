@@ -12,3 +12,4 @@ include_directories("${PROJECT_BINARY_DIR}")
 include_directories("${PROJECT_INCLUDE_DIR}")
  
 add_avr_library(${PROJECT_NAME} STATIC ${ORIGIN_SRCS})
+###target_link_libraries(${PROJECT_NAME} ZMQ)

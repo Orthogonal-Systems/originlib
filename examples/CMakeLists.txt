@@ -9,12 +9,12 @@ include_directories("${PROJECT_BINARY_DIR}")
 include_directories("${PROJECT_INCLUDE_DIR}")
 
 ### add example executable directories
-add_avr_executable(origin-test origin-test/origin-test.cpp)
+add_avr_executable(origin_test origin_test/origin_test.cpp)
 
 ### add the dependant libraries
 ### zmq monitoring server
-avr_target_link_libraries(origin-test ARDUINO)
-avr_target_link_libraries(origin-test UIPETHERNET)
-avr_target_link_libraries(origin-test ZMQ)
-avr_target_link_libraries(origin-test TIME)
-avr_target_link_libraries(origin-test ORIGIN)
+avr_target_link_libraries(origin_test ARDUINO)
+avr_target_link_libraries(origin_test UIPETHERNET)
+#avr_target_link_libraries(origin_test ZMQ)
+avr_target_link_libraries(origin_test TIME)
+avr_target_link_libraries(origin_test ORIGIN)

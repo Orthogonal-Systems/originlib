@@ -24,7 +24,7 @@ the uIP tcp stack by Adam Dunkels.
 #include "origin.h" // monitoringServer interface
 #include "datapacket.h"
 
-#define DHCP 0
+#define DHCP 1
 
 uint8_t channels = 2;
 uint8_t dataEntrySize = 5; // 16 bits ~> 65,000 -> 5 5 digits
@@ -39,7 +39,7 @@ EthernetClient client;
 // for manual configuration:
 IPAddress ip    (192,168,1,100);
 //IPAddress ip    (10,128,226,195);
-//IPAddress server(192,168,1,213);
+//IPAddress data_server(192,168,1,145);
 IPAddress data_server(128,104,160,150);
 //IPAddress server(10,128,226,183);
 int reg_port = 5556;
@@ -79,7 +79,7 @@ time_t getNtpTime();
 
 void setup_ethernet(){
   // set up ethernet chip
-  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xEE};
+  byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0x00};
 #if DHCP && UIP_UDP // cant use DHCP without using UDP
   Serial.println(F("DHCP..."));
   if (Ethernet.begin(mac) == 0) {
