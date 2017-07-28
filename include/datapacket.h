@@ -24,7 +24,7 @@
 #define DTYPE_UINT32  "uint32"
 #define DTYPE_INT64   "int64 "
 #define DTYPE_UINT64  "uint64"
-#define DTYPE_float   "float "
+#define DTYPE_FLOAT   "float "
 
 #define ERR_SERVER_RESP 1
 #define ERR_SERVER_LEN  2
@@ -125,8 +125,8 @@ class DataPacket{
 
     // The stream identification key length 4, recieved from server after string registration
     inline void streamRegistrationKey(char* key){
-      memcpy(streamVer,key,STREAM_KEY_LENGTH);
-      memcpy(streamKey,key+STREAM_KEY_LENGTH,STREAM_KEY_LENGTH);
+      memcpy(streamKey,key,STREAM_KEY_LENGTH);
+      memcpy(streamVer,key+STREAM_KEY_LENGTH,STREAM_KEY_LENGTH);
     }
 };
 
